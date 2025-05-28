@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogSphere - Editor</title>
+    <meta
+      name="description"
+      content="Create and publish your content on BlogSphere"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <style>
+      :root {
+        --primary: #4a6cf7;
+        --secondary: #6c757d;
+        --success: #28a745;
+        --danger: #dc3545;
+        --light: #f8f9fa;
+        --dark: #343a40;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f7fb;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      .sticky-header {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 15px 0;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Poppins", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      /* Editor Layout */
+      .editor-container {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .editor-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        padding: 25px;
+        margin-bottom: 25px;
+      }
+
+      /* Form Elements */
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border 0.2s;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(74, 108, 47, 0.1);
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #3a5ce4;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border-color: #ddd;
+        color: #555;
+      }
+
+      .btn-outline:hover {
+        background: #f8f9fa;
+      }
+
+      .btn-danger {
+        background: var(--danger);
+        color: white;
+      }
+
+      .btn-danger:hover {
+        background: #c82333;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Status */
+      .status-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .status-draft {
+        background: #fff3cd;
+        color: #856404;
+      }
+
+      .status-published {
+        background: #d4edda;
+        color: #155724;
+      }
+
+      /* Featured Image */
+      .image-upload {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .image-preview {
+        width: 100%;
+        height: 180px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .image-preview img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+
+      /* Tags */
+      .tag-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        min-height: 44px;
+      }
+
+      .tag {
+        background: #e7f5ff;
+        color: #228be6;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+      }
+
+      .tag-remove {
+        margin-left: 6px;
+        cursor: pointer;
+        color: #74c0fc;
+      }
+
+      .tag-input {
+        flex: 1;
+        min-width: 100px;
+        border: none;
+        outline: none;
+      }
+
+      /* Tabs */
+      .editor-tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+      }
+
+      .editor-tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        font-weight: 600;
+        color: #666;
+      }
+
+      .editor-tab.active {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+      }
+
+      /* Header */
+      .editor-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .last-saved {
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+    <!-- ======= Header ======= -->
+    <header class="sticky-header">
+      <div class="container">
+        <a href="/" class="logo">BlogSphere</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="auth-buttons">
+            <a href="login.html" class="btn btn-outline">Log In</a>
+            <a href="register.html" class="btn btn-primary">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="editor-header">
+          <h1>Create New Post</h1>
+          <div>
+            <span class="status-badge status-draft">Draft</span>
+            <span class="last-saved">Saved just now</span>
+          </div>
+        </div>
+
+        <div class="editor-tabs">
+          <div class="editor-tab active" data-tab="write">Write</div>
+          <div class="editor-tab" data-tab="preview">Preview</div>
+          <div class="editor-tab" data-tab="seo">SEO</div>
+        </div>
+
+        <div id="previewContent" style="display: none"></div>
+
+        <div class="editor-container">
+          <!-- Main Editor -->
+          <div class="editor-main">
+            <div class="editor-card">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="postTitle"
+                  placeholder="Your post title"
+                  value="The Future of Web Development"
+                />
+              </div>
+
+              <textarea id="postContent">
+## Introduction
+
+Web development is evolving rapidly. In this post, we'll explore:
+
+- Emerging technologies
+- Industry trends
+- Best practices
+- Future predictions
+
+### Key Technologies
+
+1. **WebAssembly** - Near-native performance in the browser
+2. **Edge Computing** - Faster response times
+3. **Serverless** - Scalable backend solutions
+
+```javascript
+// Example code
+async function fetchData() {
+  const response = await fetch('/api/data');
+  return response.json();
+}
+```</textarea
+              >
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="editor-sidebar">
+            <!-- Publish Card -->
+            <div class="editor-card">
+              <h3>Publish</h3>
+              <div class="btn-group">
+                <button class="btn btn-outline" id="saveDraft">
+                  Save Draft
+                </button>
+                <button class="btn btn-primary" id="publishBtn">Publish</button>
+              </div>
+
+              <div class="form-group" style="margin-top: 20px">
+                <label
+                  >Status:
+                  <span class="status-badge status-draft">Draft</span></label
+                >
+                <p style="font-size: 13px; color: #666; margin-top: 5px">
+                  Last updated: Just now
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label>Visibility</label>
+                <select class="form-control" id="postVisibility">
+                  <option value="public">Public</option>
+                  <option value="private">Private</option>
+                  <option value="password">Password Protected</option>
+                </select>
+                <div id="passwordField" style="margin-top: 10px; display: none">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Enter password"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Publish Date</label>
+                <input
+                  type="datetime-local"
+                  class="form-control"
+                  id="publishDate"
+                />
+              </div>
+            </div>
+
+            <!-- Categories & Tags -->
+            <div class="editor-card">
+              <h3>Categories</h3>
+              <div class="form-group">
+                <select class="form-control" id="postCategory">
+                  <option value="">Select category</option>
+                  <option value="tech" selected>Technology</option>
+                  <option value="design">Design</option>
+                  <option value="business">Business</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Tags</label>
+                <div class="tag-container">
+                  <span class="tag"
+                    >webdev <span class="tag-remove">×</span></span
+                  >
+                  <span class="tag"
+                    >javascript <span class="tag-remove">×</span></span
+                  >
+                  <input type="text" class="tag-input" placeholder="Add tag" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="editor-card">
+              <h3>Featured Image</h3>
+              <div class="image-upload">
+                <div class="image-preview">
+                  <img
+                    src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                    alt="Preview"
+                    id="imagePreview"
+                  />
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn-outline">Upload</button>
+                  <button class="btn btn-outline">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SEO Settings -->
+            <div class="editor-card">
+              <h3>SEO Settings</h3>
+              <div class="form-group">
+                <label>Meta Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="SEO title"
+                  value="The Future of Web Development - Trends and Predictions"
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Meta Description</label>
+                <textarea class="form-control" rows="3">
+Explore the latest trends in web development and what the future holds for developers and businesses alike.</textarea
+                >
+              </div>
+
+              <div class="form-group">
+                <label>Slug</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="future-of-web-development"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- About -->
+          <div class="footer-about">
+            <h3>BlogSphere</h3>
+            <p>
+              Sharing ideas that matter through thoughtful writing and community
+              engagement.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="write.html">Write for Us</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="footer-categories">
+            <h4>Categories</h4>
+            <ul>
+              <li><a href="category.html">Technology</a></li>
+              <li><a href="category.html">Design</a></li>
+              <li><a href="category.html">Business</a></li>
+              <li><a href="category.html">Lifestyle</a></li>
+              <li><a href="category.html">Travel</a></li>
+              <li><a href="category.html">Health</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Subscribe to get updates on new posts</p>
+            <form class="footer-newsletter-form">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023 BlogSphere. All rights reserved.</p>
+          <div class="footer-lang">
+            <span>Language:</span>
+            <a href="#" class="active">English</a>
+            <a href="#">Español</a>
+            <a href="#">Français</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+    <script>
+      function savePostData(status) {
+        const postTitle = document.getElementById("postTitle").value;
+        const postContent = editor.value();
+        const postCategory = document.getElementById("postCategory").value;
+        const postVisibility = document.getElementById("postVisibility").value;
+        const publishDate = document.getElementById("publishDate").value;
+
+        // Placeholder for saving data to a server
+        console.log("Saving post data:", {
+          title: postTitle,
+          content: postContent,
+          category: postCategory,
+          visibility: postVisibility,
+          publishDate: publishDate,
+          status: status,
+        });
+
+        alert("Post data saved successfully!");
+      }
+
+      // Initialize Markdown editor
+      const editor = new EasyMDE({
+        element: document.getElementById("postContent"),
+        spellChecker: false,
+        autoDownloadFontAwesome: false,
+        placeholder: "Write your post here...",
+        toolbar: [
+          "bold",
+          "italic",
+          "heading",
+          "|",
+          "quote",
+          "unordered-list",
+          "ordered-list",
+          "|",
+          "link",
+          "image",
+          "|",
+          "preview",
+          "side-by-side",
+          "fullscreen",
+          "|",
+          "guide",
+        ],
+      });
+
+      // Toggle password field
+      document
+        .getElementById("postVisibility")
+        .addEventListener("change", function () {
+          document.getElementById("passwordField").style.display =
+            this.value === "password" ? "block" : "none";
+        });
+
+      // Tag functionality
+      const tagInput = document.querySelector(".tag-input");
+      const tagContainer = document.querySelector(".tag-container");
+
+      tagInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && this.value.trim()) {
+          e.preventDefault();
+          addTag(this.value.trim());
+          this.value = "";
+        }
+      });
+
+      function addTag(tag) {
+        const tagEl = document.createElement("span");
+        tagEl.className = "tag";
+        tagEl.innerHTML = `${tag} <span class="tag-remove">×</span>`;
+        tagContainer.insertBefore(tagEl, tagInput);
+
+        tagEl.querySelector(".tag-remove").addEventListener("click", () => {
+          tagEl.remove();
+        });
+      }
+
+      // Remove existing tags
+      document.querySelectorAll(".tag-remove").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.parentElement.remove();
+        });
+      });
+
+      // Button actions
+      document
+        .getElementById("saveDraft")
+        .addEventListener("click", function () {
+          savePostData("draft");
+        });
+
+      document
+        .getElementById("publishBtn")
+        .addEventListener("click", function () {
+          savePostData("published");
+        });
+
+      // Tab functionality
+      const tabs = document.querySelectorAll(".editor-tab");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", function () {
+          const tabId = this.dataset.tab;
+
+          tabs.forEach((t) => t.classList.remove("active"));
+          this.classList.add("active");
+
+          if (tabId === "write") {
+            document.querySelector(".editor-container").style.display = "grid";
+            document.getElementById("previewContent").style.display = "none";
+          } else if (tabId === "preview") {
+            document.querySelector(".editor-container").style.display = "none";
+            document.getElementById("previewContent").style.display = "block";
+            const previewContent = document.getElementById("previewContent");
+            previewContent.innerHTML = editor.value();
+          } else if (tabId === "seo") {
+            document.querySelector(".editor-container").style.display = "none";
+            document.getElementById("previewContent").style.display = "none";
+          }
+        });
+      });
+
+      function saveSeoData() {
+        const metaTitle = document.querySelector(
+          '.editor-card [placeholder="SEO title"]'
+        ).value;
+        const metaDescription = document.querySelector(
+          '.editor-card [rows="3"]'
+        ).value;
+        const slug = document.querySelector(
+          '.editor-card [value="future-of-web-development"]'
+        ).value;
+
+        // Placeholder for saving SEO data to a server
+        console.log("Saving SEO data:", {
+          metaTitle: metaTitle,
+          metaDescription: metaDescription,
+          slug: slug,
+        });
+
+        alert("SEO data saved successfully!");
+      }
+    </script>
+  </body>
+</html>

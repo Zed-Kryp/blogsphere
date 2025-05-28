@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | BlogSphere</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-container">
+      <div class="auth-branding">
+        <a href="index.html" class="logo">BlogSphere</a>
+        <h1>Join our writing community</h1>
+        <p>
+          Create your account to start publishing your stories and connecting
+          with readers.
+        </p>
+        <img
+          src="images/auth-illustration-2.svg"
+          alt="Signup illustration"
+          class="auth-illustration"
+        />
+      </div>
+
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          <h2>Create Account</h2>
+          <p>Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+
+        <form id="registerForm" class="auth-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="error-message" id="name-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <div class="input-with-icon">
+              <i class="fas fa-at"></i>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="yourusername"
+                required
+              />
+            </div>
+            <div class="error-message" id="username-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+            <div class="error-message" id="email-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                required
+              />
+              <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+            </div>
+            <div class="password-strength">
+              <div class="strength-meter">
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+                <span class="strength-bar"></span>
+              </div>
+              <span class="strength-text">Password strength</span>
+            </div>
+            <div class="error-message" id="password-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="input-with-icon">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="••••••••"
+                required
+              />
+              <i
+                class="fas fa-eye password-toggle"
+                id="toggleConfirmPassword"
+              ></i>
+            </div>
+            <div class="error-message" id="confirm-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-container">
+              <input type="checkbox" id="terms" name="terms" required />
+              <span class="checkmark"></span>
+              I agree to the <a href="#">Terms of Service</a> and
+              <a href="#">Privacy Policy</a>
+            </label>
+            <div class="error-message" id="terms-error"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <span class="btn-text">Create Account</span>
+            <i class="fas fa-spinner fa-spin btn-loader"></i>
+          </button>
+
+          <div class="auth-divider">
+            <span>or sign up with</span>
+          </div>
+
+          <div class="social-auth">
+            <button type="button" class="btn btn-outline btn-social">
+              <i class="fab fa-google"></i> Google
+            </button>
+            <button type="button" class="btn btn-outline btn-social">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="auth.js"></script>
+  </body>
+</html>

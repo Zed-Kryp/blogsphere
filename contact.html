@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogSphere - Contact</title>
+    <meta
+      name="description"
+      content="Contact BlogSphere for inquiries and feedback."
+    />
+
+    <!-- Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header class="sticky-header">
+      <div class="container">
+        <a href="/" class="logo">BlogSphere</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <!-- When NOT logged in -->
+          <div class="auth-buttons">
+            <a href="login.html" class="btn btn-outline">Log In</a>
+            <a href="register.html" class="btn btn-primary">Sign Up</a>
+          </div>
+
+          <!-- When logged in -->
+          <div class="user-menu">
+            <img
+              src="images/default-avatar.png"
+              alt="Avatar"
+              class="user-avatar"
+            />
+            <span class="user-name"
+              >Hi, <strong id="userName">User</strong></span
+            >
+            <button class="btn-logout" onclick="logout()" aria-label="Logout">
+              <i class="fas fa-sign-out-alt"></i>
+            </button>
+          </div>
+
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="container">
+        <h1>Contact</h1>
+        <p>This is the contact page.</p>
+      </div>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- About -->
+          <div class="footer-about">
+            <h3>BlogSphere</h3>
+            <p>
+              Sharing ideas that matter through thoughtful writing and community
+              engagement.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="write.html">Write for Us</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="footer-categories">
+            <h4>Categories</h4>
+            <ul>
+              <li><a href="category.html">Technology</a></li>
+              <li><a href="category.html">Design</a></li>
+              <li><a href="category.html">Business</a></li>
+              <li><a href="category.html">Lifestyle</a></li>
+              <li><a href="category.html">Travel</a></li>
+              <li><a href="category.html">Health</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Subscribe to get updates on new posts</p>
+            <form class="footer-newsletter-form">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023 BlogSphere. All rights reserved.</p>
+          <div class="footer-lang">
+            <span>Language:</span>
+            <a href="#" class="active">English</a>
+            <a href="#">Español</a>
+            <a href="#">Français</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>

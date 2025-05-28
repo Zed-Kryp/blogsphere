@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogSphere - Discover & Share Amazing Stories</title>
+    <meta
+      name="description"
+      content="Join our community of passionate writers and curious readers. Explore thought-provoking articles across technology, design, business and more."
+    />
+
+    <!-- Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans:wght@400;600&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    <header class="sticky-header">
+      <div class="container">
+        <a href="/" class="logo">BlogSphere</a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <!-- When NOT logged in -->
+          <div class="auth-buttons">
+            <a href="login.html" class="btn btn-outline">Log In</a>
+            <a href="register.html" class="btn btn-primary">Sign Up</a>
+          </div>
+
+          <!-- When logged in -->
+          <div class="user-menu">
+            <img
+              src="images/default-avatar.png"
+              alt="Avatar"
+              class="user-avatar"
+            />
+            <span class="user-name"
+              >Hi, <strong id="userName">User</strong></span
+            >
+            <button class="btn-logout" onclick="logout()" aria-label="Logout">
+              <i class="fas fa-sign-out-alt"></i>
+            </button>
+          </div>
+
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+      <div class="container">
+        <form class="search-form">
+          <input
+            type="text"
+            placeholder="Search articles, authors, topics..."
+            class="search-input"
+          />
+          <button type="submit" class="search-submit">
+            <i class="fas fa-search"></i>
+          </button>
+          <button type="button" class="search-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ======= Hero Section ======= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Discover & Share Amazing Stories</h1>
+          <p>
+            Join our community of passionate writers and curious readers
+            exploring technology, design, business and more.
+          </p>
+          <div class="hero-cta">
+            <a href="#featured" class="btn btn-primary btn-lg">Start Reading</a>
+            <a href="write.html" class="btn btn-outline btn-lg"
+              >Become a Writer</a
+            >
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">10K+</span>
+              <span class="stat-label">Articles</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5K+</span>
+              <span class="stat-label">Writers</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">1M+</span>
+              <span class="stat-label">Readers</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="images/reading-illustration.svg"
+            alt="Person reading on digital devices"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Featured Posts ======= -->
+    <section class="featured-posts" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Stories</h2>
+          <a href="featured.html" class="view-all">View All Featured</a>
+        </div>
+        <div class="featured-grid">
+          <!-- Main Featured Post -->
+          <article class="featured-card main-feature">
+            <div class="post-image">
+              <img
+                src="images/featured1.jpg"
+                alt="AI technology futuristic interface"
+                loading="lazy"
+              />
+              <span class="category-tag technology">Technology</span>
+            </div>
+            <div class="post-content">
+              <h3><a href="post.html">The Future of AI in Everyday Life</a></h3>
+              <p class="post-excerpt">
+                Exploring how artificial intelligence will transform our daily
+                routines by 2030 with practical examples and expert
+                predictions...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author1.jpg"
+                  class="author-avatar"
+                  alt="Sarah Johnson"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">Sarah Johnson</span>
+                  <span class="post-date">May 15, 2023 · 8 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured Card 2 -->
+          <article class="featured-card">
+            <div class="post-image">
+              <img
+                src="images/featured2.jpg"
+                alt="Minimalist web design"
+                loading="lazy"
+              />
+              <span class="category-tag design">Design</span>
+            </div>
+            <div class="post-content">
+              <h3><a href="post.html">Minimalism in Modern Web Design</a></h3>
+              <p class="post-excerpt">
+                How stripping back to essentials creates more powerful user
+                experiences and improves conversion...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author2.jpg"
+                  class="author-avatar"
+                  alt="Michael Chen"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">Michael Chen</span>
+                  <span class="post-date">May 12, 2023 · 5 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured Card 3 -->
+          <article class="featured-card">
+            <div class="post-image">
+              <img
+                src="images/featured3.jpg"
+                alt="Remote work setup"
+                loading="lazy"
+              />
+              <span class="category-tag business">Business</span>
+            </div>
+            <div class="post-content">
+              <h3><a href="post.html">The Future of Remote Work in 2023</a></h3>
+              <p class="post-excerpt">
+                Analyzing the latest trends in distributed teams and what
+                companies need to succeed in the new normal...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author3.jpg"
+                  class="author-avatar"
+                  alt="David Wilson"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">David Wilson</span>
+                  <span class="post-date">May 10, 2023 · 7 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Trending Topics ======= -->
+    <section class="trending-topics">
+      <div class="container">
+        <h2 class="section-title">Trending Topics</h2>
+        <div class="topics-grid">
+          <a href="tag.html" class="topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h3>Artificial Intelligence</h3>
+            <p>128 articles</p>
+          </a>
+          <a href="tag.html" class="topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>256 articles</p>
+          </a>
+          <a href="tag.html" class="topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Productivity</h3>
+            <p>89 articles</p>
+          </a>
+          <a href="tag.html" class="topic-card">
+            <div class="topic-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Startups</h3>
+            <p>72 articles</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Main Content Area ======= -->
+    <main class="main-content">
+      <div class="container content-grid">
+        <!-- ======= Posts Column ======= -->
+        <section class="posts-column">
+          <div class="section-header">
+            <h2>Latest Articles</h2>
+            <div class="sort-options">
+              <select aria-label="Sort articles">
+                <option>Newest First</option>
+                <option>Most Popular</option>
+                <option>Trending</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Post Card 1 -->
+          <article class="post-card">
+            <div class="post-image">
+              <img
+                src="images/post1.jpg"
+                alt="JavaScript code on screen"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-content">
+              <span class="category-tag technology">Technology</span>
+              <h3>
+                <a href="post.html">JavaScript Frameworks Comparison 2023</a>
+              </h3>
+              <p class="post-excerpt">
+                An in-depth look at React, Vue, Angular and Svelte to help you
+                choose the right framework for your next project...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author4.jpg"
+                  class="author-avatar"
+                  alt="Emma Roberts"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">Emma Roberts</span>
+                  <span class="post-date">May 8, 2023 · 10 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post Card 2 -->
+          <article class="post-card">
+            <div class="post-image">
+              <img
+                src="images/post2.jpg"
+                alt="UX design process"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-content">
+              <span class="category-tag design">Design</span>
+              <h3>
+                <a href="post.html">UX Design Principles That Never Change</a>
+              </h3>
+              <p class="post-excerpt">
+                While trends come and go, these fundamental UX principles remain
+                critical for creating effective interfaces...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author5.jpg"
+                  class="author-avatar"
+                  alt="James Peterson"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">James Peterson</span>
+                  <span class="post-date">May 5, 2023 · 6 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post Card 3 -->
+          <article class="post-card">
+            <div class="post-image">
+              <img
+                src="images/post3.jpg"
+                alt="Person meditating"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-content">
+              <span class="category-tag lifestyle">Lifestyle</span>
+              <h3>
+                <a href="post.html"
+                  >Mindfulness Techniques for Digital Workers</a
+                >
+              </h3>
+              <p class="post-excerpt">
+                Practical mindfulness exercises to help knowledge workers reduce
+                stress and improve focus in our always-connected world...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author6.jpg"
+                  class="author-avatar"
+                  alt="Lisa Wong"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">Lisa Wong</span>
+                  <span class="post-date">May 3, 2023 · 8 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Newsletter CTA -->
+          <div class="newsletter-cta">
+            <div class="cta-content">
+              <h3>Get the best stories delivered to your inbox</h3>
+              <p>
+                Subscribe to our weekly newsletter for curated content and
+                exclusive articles
+              </p>
+            </div>
+            <form class="inline-newsletter-form">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+
+          <!-- Post Card 4 -->
+          <article class="post-card">
+            <div class="post-image">
+              <img
+                src="images/post4.jpg"
+                alt="Travel destination"
+                loading="lazy"
+              />
+            </div>
+            <div class="post-content">
+              <span class="category-tag travel">Travel</span>
+              <h3><a href="post.html">Digital Nomad Hotspots for 2023</a></h3>
+              <p class="post-excerpt">
+                The best cities around the world for remote workers, with
+                rankings for cost, community, and quality of life...
+              </p>
+              <div class="post-meta">
+                <img
+                  src="images/author7.jpg"
+                  class="author-avatar"
+                  alt="Carlos Mendez"
+                  loading="lazy"
+                />
+                <div class="meta-content">
+                  <span class="author-name">Carlos Mendez</span>
+                  <span class="post-date">May 1, 2023 · 9 min read</span>
+                </div>
+                <button class="bookmark-btn" aria-label="Bookmark">
+                  <i class="far fa-bookmark"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- ======= Sidebar ======= -->
+        <aside class="sidebar">
+          <!-- About Widget -->
+          <div class="sidebar-widget about-widget">
+            <h3>About BlogSphere</h3>
+            <p>
+              We're a community of thinkers, writers, and readers passionate
+              about sharing knowledge across technology, design, business and
+              lifestyle topics.
+            </p>
+            <a href="about.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+          <!-- Popular Posts Widget -->
+          <div class="sidebar-widget popular-posts">
+            <h3>Popular This Week</h3>
+            <div class="popular-post">
+              <a href="post.html" class="post-title"
+                >The Psychology of Color in Marketing</a
+              >
+              <div class="post-meta">
+                <span class="author-name">Maria Gonzalez</span>
+                <span class="post-date">Apr 28</span>
+              </div>
+            </div>
+            <div class="popular-post">
+              <a href="post.html" class="post-title"
+                >Building a Personal Brand in 2023</a
+              >
+              <div class="post-meta">
+                <span class="author-name">Thomas Lee</span>
+                <span class="post-date">Apr 26</span>
+              </div>
+            </div>
+            <div class="popular-post">
+              <a href="post.html" class="post-title"
+                >Python vs R for Data Science</a
+              >
+              <div class="post-meta">
+                <span class="author-name">Priya Patel</span>
+                <span class="post-date">Apr 24</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter Widget -->
+          <div class="sidebar-widget newsletter-widget">
+            <h3>Stay Updated</h3>
+            <p>Get the latest posts delivered to your inbox</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit" class="btn btn-primary btn-block">
+                Subscribe
+              </button>
+            </form>
+            <p class="privacy-note">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class="sidebar-widget categories-widget">
+            <h3>Categories</h3>
+            <ul>
+              <li>
+                <a href="category.html">Technology <span>1,240</span></a>
+              </li>
+              <li>
+                <a href="category.html">Design <span>856</span></a>
+              </li>
+              <li>
+                <a href="category.html">Business <span>723</span></a>
+              </li>
+              <li>
+                <a href="category.html">Lifestyle <span>512</span></a>
+              </li>
+              <li>
+                <a href="category.html">Travel <span>389</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Popular Tags Widget -->
+          <div class="sidebar-widget popular-widget">
+            <h3>Popular Tags</h3>
+            <div class="tag-cloud">
+              <a href="tag.html" class="tag">#webdev</a>
+              <a href="tag.html" class="tag">#javascript</a>
+              <a href="tag.html" class="tag">#ux</a>
+              <a href="tag.html" class="tag">#productivity</a>
+              <a href="tag.html" class="tag">#startup</a>
+              <a href="tag.html" class="tag">#react</a>
+              <a href="tag.html" class="tag">#python</a>
+              <a href="tag.html" class="tag">#mindfulness</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- ======= Pagination ======= -->
+      <div class="pagination">
+        <a href="#" class="prev disabled"
+          ><i class="fas fa-chevron-left"></i> Previous</a
+        >
+        <div class="page-numbers">
+          <a href="#" class="page active">1</a>
+          <a href="#" class="page">2</a>
+          <a href="#" class="page">3</a>
+          <span class="ellipsis">...</span>
+          <a href="#" class="page">8</a>
+        </div>
+        <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </main>
+
+    <!-- ======= Footer ======= -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- About -->
+          <div class="footer-about">
+            <h3>BlogSphere</h3>
+            <p>
+              Sharing ideas that matter through thoughtful writing and community
+              engagement.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="write.html">Write for Us</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <!-- Categories -->
+          <div class="footer-categories">
+            <h4>Categories</h4>
+            <ul>
+              <li><a href="category.html">Technology</a></li>
+              <li><a href="category.html">Design</a></li>
+              <li><a href="category.html">Business</a></li>
+              <li><a href="category.html">Lifestyle</a></li>
+              <li><a href="category.html">Travel</a></li>
+              <li><a href="category.html">Health</a></li>
+            </ul>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <h4>Newsletter</h4>
+            <p>Subscribe to get updates on new posts</p>
+            <form class="footer-newsletter-form">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2023 BlogSphere. All rights reserved.</p>
+          <div class="footer-lang">
+            <span>Language:</span>
+            <a href="#" class="active">English</a>
+            <a href="#">Español</a>
+            <a href="#">Français</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
