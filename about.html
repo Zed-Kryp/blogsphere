@@ -27,6 +27,7 @@
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="stylesheet" href="auth.css" />
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -41,7 +42,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
-        <div class="header-actions">
+        <div class="header-actions" id="headerActions">
           <!-- When NOT logged in -->
           <div class="auth-buttons">
             <a href="login.html" class="btn btn-outline">Log In</a>
@@ -49,7 +50,7 @@
           </div>
 
           <!-- When logged in -->
-          <div class="user-menu">
+          <div class="user-menu" style="display: none">
             <img
               src="images/default-avatar.png"
               alt="Avatar"
@@ -163,5 +164,44 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+      function updateHeader() {
+        const headerActions = document.getElementById("headerActions");
+        const isLoggedIn = localStorage.getItem("username") !== null;
+
+        if (isLoggedIn) {
+          headerActions.innerHTML = `
+            <div class="user-menu" style="display: flex">
+<a href="dashboard/dashboard.html">Dashboard</a>
+              <img
+                src="images/default-avatar.png"
+                alt="Avatar"
+                class="user-avatar"
+              />
+              <span class="user-name">Hi, <strong id="userName">User</strong></span>
+              <button class="btn-logout" onclick="logout()" aria-label="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          `;
+        } else {
+          headerActions.innerHTML = `
+            <div class="auth-buttons">
+              <a href="login.html" class="btn btn-outline">Log In</a>
+              <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+          `;
+        }
+      }
+
+      updateHeader();
+
+      function logout() {
+        localStorage.removeItem("username");
+        localStorage.removeItem("email");
+        updateHeader();
+        window.location.href = "/";
+      }
+    </script>
   </body>
 </html>

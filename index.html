@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="auth.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlogSphere - Discover & Share Amazing Stories</title>
@@ -42,27 +41,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
-        <div class="header-actions">
-          <!-- When NOT logged in -->
-          <div class="auth-buttons">
-            <a href="login.html" class="btn btn-outline">Log In</a>
-            <a href="register.html" class="btn btn-primary">Sign Up</a>
-          </div>
-
-          <!-- When logged in -->
-          <div class="user-menu" style="display: none">
-            <a href="dashboard.html">Dashboard</a>
-            <img
-              src="images/default-avatar.png"
-              alt="Avatar"
-              class="user-avatar"
-            />
-            <span class="user-name"
-              >Hi, <strong id="userName">User</strong></span
-            >
-            <button class="btn-logout" onclick="logout()" aria-label="Logout">
-              <i class="fas fa-sign-out-alt"></i>
-            </button>
+        <div class="header-actions" id="headerActions">
           </div>
 
           <button class="mobile-menu-btn" aria-label="Menu">
@@ -71,6 +50,46 @@
         </div>
       </div>
     </header>
+
+    <script>
+      function updateHeader() {
+        const headerActions = document.getElementById("headerActions");
+        const isLoggedIn = localStorage.getItem("username") !== null;
+
+        if (isLoggedIn) {
+          headerActions.innerHTML = `
+            <div class="user-menu" style="display: flex">
+<a href="dashboard/dashboard.html">Dashboard</a>
+              <img
+                src="images/default-avatar.png"
+                alt="Avatar"
+                class="user-avatar"
+              />
+              <span class="user-name">Hi, <strong id="userName">User</strong></span>
+              <button class="btn-logout" onclick="logout()" aria-label="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+              </button>
+            </div>
+          `;
+        } else {
+          headerActions.innerHTML = `
+            <div class="auth-buttons">
+              <a href="login.html" class="btn btn-outline">Log In</a>
+              <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+          `;
+        }
+      }
+
+      updateHeader();
+
+function logout() {
+        localStorage.removeItem("username");
+        localStorage.removeItem("email");
+        updateHeader();
+        window.location.href = "/";
+      }
+    </script>
 
     <!-- Search Overlay -->
     <div class="search-overlay">
