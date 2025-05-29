@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <h1>User Dashboard</h1>
+      <div class="user-info">
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+      </div>
+      <button id="logoutBtn">Logout</button>
+    </div>
+    <script>
+      document.getElementById("username").innerText =
+        localStorage.getItem("username") || "N/A";
+      document.getElementById("email").innerText =
+        localStorage.getItem("email") || "N/A";
+
+      document
+        .getElementById("logoutBtn")
+        .addEventListener("click", function () {
+          localStorage.removeItem("username");
+          localStorage.removeItem("email");
+          window.location.href = "index.html";
+        });
+    </script>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="auth.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlogSphere - Discover & Share Amazing Stories</title>
@@ -49,7 +50,8 @@
           </div>
 
           <!-- When logged in -->
-          <div class="user-menu">
+          <div class="user-menu" style="display: none">
+            <a href="dashboard.html">Dashboard</a>
             <img
               src="images/default-avatar.png"
               alt="Avatar"
@@ -91,41 +93,10 @@
 
     <!-- ======= Hero Section ======= -->
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1>Discover & Share Amazing Stories</h1>
-          <p>
-            Join our community of passionate writers and curious readers
-            exploring technology, design, business and more.
-          </p>
-          <div class="hero-cta">
-            <a href="#featured" class="btn btn-primary btn-lg">Start Reading</a>
-            <a href="write.html" class="btn btn-outline btn-lg"
-              >Become a Writer</a
-            >
-          </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">10K+</span>
-              <span class="stat-label">Articles</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">5K+</span>
-              <span class="stat-label">Writers</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">1M+</span>
-              <span class="stat-label">Readers</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img
-            src="images/reading-illustration.svg"
-            alt="Person reading on digital devices"
-            loading="lazy"
-          />
-        </div>
+      <div class="hero-content">
+        <h1>Welcome to BlogSphere</h1>
+        <p>Discover and share your stories with the world.</p>
+        <a href="/register" class="btn btn-primary">Get Started</a>
       </div>
     </section>
 
@@ -657,5 +628,119 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+      const mainNav = document.querySelector(".main-nav");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mainNav.classList.toggle("active");
+        mobileMenuBtn.innerHTML = mainNav.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Search Overlay Toggle
+      const searchBtn = document.querySelector(".search-btn"); // You might want to add this button to your header
+      const searchOverlay = document.querySelector(".search-overlay");
+      const searchClose = document.querySelector(".search-close");
+
+      if (searchBtn) {
+        searchBtn.addEventListener("click", () => {
+          searchOverlay.classList.add("active");
+        });
+      }
+
+      searchClose.addEventListener("click", () => {
+        searchOverlay.classList.remove("active");
+      });
+
+      // Bookmark Button Toggle
+      const bookmarkBtns = document.querySelectorAll(".bookmark-btn");
+
+      bookmarkBtns.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.innerHTML = this.classList.contains("active")
+            ? '<i class="fas fa-bookmark"></i>'
+            : '<i class="far fa-bookmark"></i>';
+        });
+      });
+
+      // Back to Top Button
+      const backToTopBtn = document.querySelector(".back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add("visible");
+        } else {
+          backToTopBtn.classList.remove("visible");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // User Authentication State (demo purposes)
+      const authButtons = document.querySelector(".auth-buttons");
+      const userMenu = document.querySelector(".user-menu");
+
+      // Check if user is logged in (demo - would come from your auth system)
+      const isLoggedIn = false; // Change to true to see logged in state
+
+      if (isLoggedIn) {
+        authButtons.style.display = "none";
+        userMenu.style.display = "flex";
+      } else {
+        authButtons.style.display = "flex";
+        userMenu.style.display = "none";
+      }
+
+      // Logout function
+      function logout() {
+        // In a real app, this would call your logout API
+        console.log("User logged out");
+        authButtons.style.display = "flex";
+        userMenu.style.display = "none";
+      }
+
+      // Newsletter Form Submission
+      const newsletterForms = document.querySelectorAll(
+        ".newsletter-form, .inline-newsletter-form, .footer-newsletter-form"
+      );
+
+      newsletterForms.forEach((form) => {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const emailInput = this.querySelector('input[type="email"]');
+          console.log("Subscribed with email:", emailInput.value);
+
+          // Show success message
+          alert("Thanks for subscribing!");
+          emailInput.value = "";
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
