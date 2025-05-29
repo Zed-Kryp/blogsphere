@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | BlogSphere</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <!-- Sidebar content here -->
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Top Navigation Bar -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">User Profile</h1>
+            <nav class="breadcrumb">
+              <a href="index.html">Home</a>
+              <span>/</span>
+              <a href="index.html">Dashboard</a>
+              <span>/</span>
+              <span>Profile</span>
+            </nav>
+          </div>
+
+          <div class="topbar-right">
+            <!-- Topbar actions here -->
+          </div>
+        </header>
+
+        <!-- Profile Content Area -->
+        <div class="content-area profile-page">
+          <div class="card">
+            <div class="card-body">
+              <div class="profile-header">
+                <div class="cover-photo">
+                  <img
+                    src="https://source.unsplash.com/random/1200x300/?nature"
+                    alt="Cover photo"
+                  />
+                  <button class="btn btn-sm btn-edit-cover">
+                    <i class="fas fa-camera"></i> Change Cover
+                  </button>
+                </div>
+
+                <div class="profile-info">
+                  <div class="avatar-container">
+                    <img
+                      src="https://randomuser.me/api/portraits/men/32.jpg"
+                      alt="John Doe"
+                      class="profile-avatar"
+                    />
+                    <button class="btn btn-sm btn-edit-avatar">
+                      <i class="fas fa-camera"></i>
+                    </button>
+                  </div>
+
+                  <div class="profile-details">
+                    <h2>
+                      John Doe
+                      <span class="verified-badge"
+                        ><i class="fas fa-check-circle"></i
+                      ></span>
+                    </h2>
+                    <p class="username">@johndoe</p>
+                    <p class="user-title">Senior Editor at BlogSphere</p>
+
+                    <div class="profile-stats">
+                      <div class="stat-item">
+                        <strong>142</strong>
+                        <span>Posts</span>
+                      </div>
+                      <div class="stat-item">
+                        <strong>1.2K</strong>
+                        <span>Followers</span>
+                      </div>
+                      <div class="stat-item">
+                        <strong>356</strong>
+                        <span>Following</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="profile-actions">
+                    <button class="btn btn-primary">
+                      <i class="fas fa-user-edit"></i> Edit Profile
+                    </button>
+                    <button class="btn btn-outline">
+                      <i class="fas fa-envelope"></i> Message
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>My Posts</h3>
+              <button class="btn btn-icon btn-sm">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <p>This is where the user's posts would be displayed.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Settings</h3>
+              <button class="btn btn-icon btn-sm">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <p>This is where the user's settings would be displayed.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="auth.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up | BlogSphere</title>
@@ -37,7 +36,6 @@
           <div class="form-group">
             <label for="name">Full Name</label>
             <div class="input-with-icon">
-              <i class="fas fa-user"></i>
               <input
                 type="text"
                 id="name"
@@ -52,7 +50,6 @@
           <div class="form-group">
             <label for="username">Username</label>
             <div class="input-with-icon">
-              <i class="fas fa-at"></i>
               <input
                 type="text"
                 id="username"
@@ -67,7 +64,6 @@
           <div class="form-group">
             <label for="email">Email Address</label>
             <div class="input-with-icon">
-              <i class="fas fa-envelope"></i>
               <input
                 type="email"
                 id="email"
@@ -82,7 +78,6 @@
           <div class="form-group">
             <label for="password">Password</label>
             <div class="input-with-icon">
-              <i class="fas fa-lock"></i>
               <input
                 type="password"
                 id="password"
@@ -90,16 +85,6 @@
                 placeholder="••••••••"
                 required
               />
-              <i class="fas fa-eye password-toggle" id="togglePassword"></i>
-            </div>
-            <div class="password-strength">
-              <div class="strength-meter">
-                <span class="strength-bar"></span>
-                <span class="strength-bar"></span>
-                <span class="strength-bar"></span>
-                <span class="strength-bar"></span>
-              </div>
-              <span class="strength-text">Password strength</span>
             </div>
             <div class="error-message" id="password-error"></div>
           </div>
@@ -107,7 +92,6 @@
           <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
             <div class="input-with-icon">
-              <i class="fas fa-lock"></i>
               <input
                 type="password"
                 id="confirmPassword"
@@ -115,27 +99,9 @@
                 placeholder="••••••••"
                 required
               />
-              <i
-                class="fas fa-eye password-toggle"
-                id="toggleConfirmPassword"
-              ></i>
-            </div>
-            <div class="password-strength">
-              <div class="strength-meter">
-                <span class="strength-bar"></span>
-                <span class="strength-bar"></span>
-                <span class="strength-bar"></span>
-                <span class="strength-bar"></span>
-              </div>
-              <span class="strength-text">Password strength</span>
             </div>
             <div class="error-message" id="confirm-error"></div>
           </div>
-          <label class="checkbox-container">
-            <input type="checkbox" id="showPassword" />
-            <span class="checkmark"></span>
-            Show password
-          </label>
 
           <div class="form-group">
             <label class="checkbox-container">

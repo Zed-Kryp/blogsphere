@@ -15,12 +15,6 @@
       rel="stylesheet"
     />
 
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
 
@@ -285,9 +279,25 @@
           </ul>
         </nav>
         <div class="header-actions">
+          <!-- When NOT logged in -->
           <div class="auth-buttons">
             <a href="login.html" class="btn btn-outline">Log In</a>
             <a href="register.html" class="btn btn-primary">Sign Up</a>
+          </div>
+
+          <!-- When logged in -->
+          <div class="user-menu" style="display: none">
+            <img
+              src="images/default-avatar.png"
+              alt="Avatar"
+              class="user-avatar"
+            />
+            <span class="user-name"
+              >Hi, <strong id="userName">User</strong></span
+            >
+            <button class="btn-logout" onclick="logout()" aria-label="Logout">
+              <i class="fas fa-sign-out-alt"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -527,11 +537,11 @@ Explore the latest trends in web development and what the future holds for devel
             <h4>Categories</h4>
             <ul>
               <li><a href="category.html">Technology</a></li>
-              <li><a href="category.html">Design</a></li>
-              <li><a href="category.html">Business</a></li>
-              <li><a href="category.html">Lifestyle</a></li>
-              <li><a href="category.html">Travel</a></li>
-              <li><a href="category.html">Health</a></li>
+              <li><a href="design.html">Design</a></li>
+              <li><a href="business.html">Business</a></li>
+              <li><a href="lifestyle.html">Lifestyle</a></li>
+              <li><a href="travel.html">Travel</a></li>
+              <li><a href="health.html">Health</a></li>
             </ul>
           </div>
 

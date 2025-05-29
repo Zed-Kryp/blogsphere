@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | BlogSphere</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <a href="index.html" class="logo">BlogSphere</a>
+          <button class="sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <h3 class="nav-section-title">Main</h3>
+            <ul>
+              <li class="nav-item active">
+                <a href="index.html">
+                  <i class="fas fa-tachometer-alt"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">Content</h3>
+            <ul>
+              <li class="nav-item">
+                <a href="#media">
+                  <i class="fas fa-images"></i>
+                  <span>Media Library</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#comments">
+                  <i class="fas fa-comments"></i>
+                  <span>Comments</span>
+                  <span class="badge">12</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <h3 class="nav-section-title">Settings</h3>
+            <ul>
+              <li class="nav-item">
+                <a href="#">
+                  <i class="fas fa-user"></i>
+                  <span>Profile</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#">
+                  <i class="fas fa-cog"></i>
+                  <span>Settings</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="#"
+                  onclick="localStorage.clear(); window.location.href = '/'"
+                >
+                  <i class="fas fa-sign-out-alt"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="user-profile">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="User"
+              class="user-avatar"
+            />
+            <div class="user-info">
+              <span class="user-name">John Doe</span>
+              <span class="user-role">Administrator</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Top Navigation Bar -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <h1 class="page-title">Dashboard</h1>
+            <nav class="breadcrumb">
+              <a href="index.html">Home</a>
+              <span>/</span>
+              <a href="index.html">Dashboard</a>
+              <span>/</span>
+              <span>Users Management</span>
+            </nav>
+          </div>
+
+          <div class="topbar-right">
+            <div class="search-box">
+              <input type="text" placeholder="Search..." />
+              <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="notifications">
+              <button class="notification-btn">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+              </button>
+              <div class="notification-dropdown">
+                <div class="notification-header">
+                  <h4>Notifications</h4>
+                  <button class="mark-all-read">Mark all as read</button>
+                </div>
+                <div class="notification-list">
+                  <a href="#" class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-comment"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p>New comment on "Getting Started with React"</p>
+                      <span class="notification-time">2 hours ago</span>
+                    </div>
+                  </a>
+                  <a href="#" class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p>Your post was liked 15 times</p>
+                      <span class="notification-time">5 hours ago</span>
+                    </div>
+                  </a>
+                  <a href="#" class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <p>You have 5 new followers</p>
+                      <span class="notification-time">1 day ago</span>
+                    </div>
+                  </a>
+                </div>
+                <div class="notification-footer">
+                  <a href="#">View all notifications</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="content-area">
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-newspaper"></i>
+              </div>
+              <div class="stat-info">
+                <h3>24</h3>
+                <p>Published Posts</p>
+              </div>
+              <div class="stat-trend up">
+                <i class="fas fa-arrow-up"></i> 12%
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="stat-info">
+                <h3>1,245</h3>
+                <p>Total Views</p>
+              </div>
+              <div class="stat-trend up">
+                <i class="fas fa-arrow-up"></i> 8%
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="stat-info">
+                <h3>56</h3>
+                <p>Comments</p>
+              </div>
+              <div class="stat-trend down">
+                <i class="fas fa-arrow-down"></i> 5%
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-info">
+                <h3>1,024</h3>
+                <p>Subscribers</p>
+              </div>
+              <div class="stat-trend up">
+                <i class="fas fa-arrow-up"></i> 23%
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity and Quick Draft -->
+          <div class="content-grid">
+            <div class="content-col">
+              <div class="card">
+                <div class="card-header">
+                  <h2>Users</h2>
+                </div>
+                <div class="card-body">
+                  <p>This is the users management page.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-col">
+              <div class="card">
+                <div class="card-header">
+                  <h2>Quick Draft</h2>
+                </div>
+                <div class="card-body">
+                  <form id="quickDraftForm">
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="Title"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <textarea
+                        placeholder="What's on your mind?"
+                        rows="5"
+                        class="form-control"
+                      ></textarea>
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option value="">Select Category</option>
+                        <option value="technology">Technology</option>
+                        <option value="design">Design</option>
+                        <option value="business">Business</option>
+                        <option value="lifestyle">Lifestyle</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-actions">
+                        <button type="button" class="btn btn-secondary">
+                          Save Draft
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                          Publish
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>
